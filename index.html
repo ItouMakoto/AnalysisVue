@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">{{message}}</div>
+    <script src="dist/vue.js"></script>
+    <script>
+        let vm=new Vue({
+            el: '#app',
+            data() {
+                return{
+                    message: 'Hello Vue!',
+                    info:{
+                        name:'张三',
+                        age:18
+                    }
+                }
+            }
+        })
+        console.log('实现vue',vm)
+    </script>
+</body>
+</html>
+
