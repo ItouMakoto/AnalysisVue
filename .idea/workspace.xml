@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfa23874-83bf-4554-bf0e-ba5e1aea762f" name="变更" comment="" />
+    <list default="true" id="bfa23874-83bf-4554-bf0e-ba5e1aea762f" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/src/compiler/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +19,9 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="recentBranches">
@@ -58,7 +63,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/workplace/前端/vue&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/itoumakoto/Documents/Sohu/openSource/AnalysisVue&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -84,7 +90,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript 调试.index.html" />
         <item itemvalue="Node.js.init.js" />
         <item itemvalue="Node.js.index.js" />
       </list>
@@ -101,6 +106,8 @@
       <workItem from="1680098861637" duration="5897000" />
       <workItem from="1680180995975" duration="5294000" />
       <workItem from="1680279288879" duration="2888000" />
+      <workItem from="1680336516616" duration="194000" />
+      <workItem from="1680336770106" duration="608000" />
     </task>
     <servers />
   </component>
