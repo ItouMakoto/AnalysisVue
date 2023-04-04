@@ -6,13 +6,10 @@ const attribute = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s
 const startTagClose = /^\s*(\/?)>/; // 匹配标签结束的
 const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g; // 匹配 {{ xxx }}
 
-export function compileToFunctions(template) {
-   parseHTML(template);
 
-}
 let root=null
 let stack=[]
-function start() {
+function start(tagName, attrs) {
     let element = createASTElement(tagName, attrs);
     if (!root) {
         root = element;
@@ -39,6 +36,7 @@ function end(endTag) {
 
 function chars(text) {
     text = text.replace(/\s/g, '');
+    let currentParent =stack[stack.length-1]
     if (text) {
         currentParent.children.push({
             type: 3,
@@ -55,8 +53,8 @@ function createASTElement(tagName,attrs){
         attrs
     }
 }
-function parseHTML(html) {
-    function advance(eln){
+export function parseHTML(html) {
+    function advance(n){
         html = html.substring(n);
     }
     function parseStartTag() {
@@ -102,4 +100,5 @@ function parseHTML(html) {
             chars(text);
         }
     }
+    return root
 }

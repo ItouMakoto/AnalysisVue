@@ -1,4 +1,5 @@
 import { initState } from './state';
+import {compileToFunctions} from "./compiler/parser";
 export function initMixin(Vue) {
     Vue.prototype._init = function (options) {
         const vm = this;
@@ -11,6 +12,7 @@ export function initMixin(Vue) {
         }
     };
     Vue.prototype.$mount = function (el) {
+        console.log('mount')
         const vm = this;
         const options = vm.$options;
         el = document.querySelector(el);
