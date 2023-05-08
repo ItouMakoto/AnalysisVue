@@ -329,7 +329,7 @@
   var defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g; //["{{test}}","test"]
   function generator(root) {
     console.log('generator', root);
-    var code = "_c('".concat(root.tag, "',").concat(root.attrs.length ? "{".concat(genProps(root.attrs), "}") : 'undefined', "),\n    ").concat(root.children ? ",".concat(genChildren(root.children)) : '');
+    var code = "_c('".concat(root.tag, "',").concat(root.attrs.length ? "{".concat(genProps(root.attrs), "}") : 'undefined', "\n    ").concat(root.children ? ",".concat(genChildren(root.children)) : '', ")");
     return code;
   }
   function genProps(attrs) {
@@ -401,14 +401,29 @@
       }
     }
   }
+  //_c('div',{},hello) eval可以将字符串转成函数但是性能不好
 
   function compileToFunctions(template) {
     var root = parseHTML(template);
     console.log('root', root);
-    generator(root);
+    var code = generator(root);
+    console.log('code', code);
+    var render = new Function("with(this){return ".concat(code, "}")); //with(this)将this中的数据全部放到函数作用域中
+    // let render = new Function(`with(this){return ${code}}`);
     // html=>ast语法树=>render函数=>虚拟dom(增加额外属性)=>真实dom
+    console.log('render', render);
   }
   // {}
+
+  function mountComponent(vm, el) {
+    var updateComponent = function updateComponent() {
+      //更新函数，数据变化后会再次调用此函数
+      vm._render(); //生成虚拟dom
+      vm._update(); //虚拟dom转换成真实dom
+    };
+
+    updateComponent();
+  }
 
   function initMixin(Vue) {
     Vue.prototype._init = function (options) {
@@ -435,6 +450,7 @@
         var render = compileToFunctions(template); //将模板编译成render函数
         options.render = render;
       }
+      mountComponent(vm); //组件挂载
     };
   }
 
@@ -442,6 +458,8 @@
     this._init(options);
   }
   initMixin(Vue); //
+  renderMixin(Vue); //渲染
+  lifecycleMixin(Vue); //生命周期
 
   return Vue;
 

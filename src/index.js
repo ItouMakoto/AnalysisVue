@@ -5,4 +5,6 @@ function Vue(options){
 }
 
 initMixin(Vue)//
+renderMixin(Vue)//渲染
+lifecycleMixin(Vue)//生命周期
 export default Vue

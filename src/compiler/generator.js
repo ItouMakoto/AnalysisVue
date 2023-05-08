@@ -1,8 +1,8 @@
 const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g//["{{test}}","test"]
 export function generator(root) {
     console.log('generator', root)
-    let code = `_c('${root.tag}',${root.attrs.length ? `{${genProps(root.attrs)}}` : 'undefined'}),
-    ${root.children ? `,${genChildren(root.children)}` : ''}`
+    let code = `_c('${root.tag}',${root.attrs.length ? `{${genProps(root.attrs)}}` : 'undefined'}
+    ${root.children ? `,${genChildren(root.children)}` : ''})`
     return code
 }
 
@@ -65,3 +65,4 @@ function gen(el) {
     }
 
 }
+//_c('div',{},hello) eval可以将字符串转成函数但是性能不好

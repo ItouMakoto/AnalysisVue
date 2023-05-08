@@ -17,6 +17,7 @@ methods.forEach((item)=>{
             if(inserted){
                 ob.observer(inserted)
             }
+            ob.dep.notify()//数组变化了，通知更新
         }
     }
 })
